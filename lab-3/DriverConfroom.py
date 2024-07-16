@@ -1,7 +1,7 @@
 import sys
 from antlr4 import *
-from ConfRoomSchedulerLexer import ConfRoomSchedulerLexer
-from ConfRoomSchedulerParser import ConfRoomSchedulerParser
+from gen.ConfRoomSchedulerLexer import ConfRoomSchedulerLexer
+from gen.ConfRoomSchedulerParser import ConfRoomSchedulerParser
 
 def main(argv):
     input_stream = FileStream(argv[1])
