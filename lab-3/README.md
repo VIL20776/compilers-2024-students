@@ -1,29 +1,83 @@
+Here's the updated README for Laboratory #3:
 
-# Laboratorio 3
+# Laboratory #3 - Compilers: DSL Reservations Language Interpreter 🛠️
 
-## Para correr el lab
+> **Due Date:** August 9, 2024
 
-Utilicen nuevamente el container del lab anterior o su propia implementación. No usen Java si no quieren, pueden usar Python.
+> **Due Time:** 11:35pm
 
-* En el root de este lab deben crear un container interactivo en dónde van a correr los comandos de ANTLR:
+> **Class:** Construcción de Compiladores
 
-  ```
-  docker build --rm . -t lab2-image && docker run --rm -ti -v "$(pwd)/program":/program lab2-image
-  ```
-* Siga utilizando el mismo volumen de Docker en `/program` y coloque los archivos y la gramática de ANTLR. Asimismo, coloque el archivo `DriverConfroom.py` que sirve como un Main para importar las clases de Lexer y Parser generadas por ANTLR y poder analizar archivos para validarlos sintácticamente con la gramática que proporcionamos.
+> **Class Time:** Section 10
 
-  * Aquí es donde después, conforme avance el curso, ustedes van a generar inclusive otras clases con ANTLR, ya sean Visitors o Listeners y van a aplicar un análisis semántico.
-* Coloque también el archivo `program_test_confroom.txt` el cual será el que vamos a parsear para analizar si es válido con nuestra gramática o no.
-* Luego que corran el comando de Docker, deberán de generar los archivos de Lexer y Parser de ANTLR con el siguiente comando:
+> **Instructor:** Professor Bidkar Pojoy
 
-  ```
-  antlr -Dlanguage=Python3 ConfRoomScheduler.g4
-  ```
-* Luego, usan el Driver para analizar el archivo de prueba:
+> **Authors:** **Samuel Chamalé and Dáriel Villatoro**
 
-  ```
-  python3 DriverConfroom.py program_test_confroom.txt
-  ```
-* Si el archivo se encuentra sintácticamente correcto, no verán un output en la consola. Por el contrario si hay un error sintáctico/léxico, ANTLR se los hará saber.
-* Y listo, con esto ya tienen un playground inicial para probar archivos con ANTLR.
-* Para sus proyectos, se recomienda que extiendan este ambiente para sostener una arquitectura más robusta, este solo es un ejemplo básico.
+<p align="center">
+  <br>
+  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXJ3dnMwOGdsd2F2eHMzMWc1cDc4NHoyYXJxaHI3d3ZqM2NmazRhYSZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9Zw/xT5LMINTLCSOGdIyEo/giphy.webp" alt="wb" width="400">
+  <br>
+</p>
+<p align="center" >
+  <a href="#overview">Overview</a> •
+  <a href="#prerequisites">Prerequisites</a> •
+  <a href="#instructions">Instructions</a> •
+  <a href="#files">Files</a>
+</p>
+
+## Overview
+
+This repository contains the code and resources for Laboratory #3 of the Compilers course. The objective of this laboratory is to design and run a custom Domain Specific Language (DSL) for conference room reservations using ANTLR.
+
+## Prerequisites
+
+Before you begin, ensure you have the following software installed on your machine:
+
+- Docker
+
+## Instructions
+
+### Building and Running the Docker Image
+
+1. **Build and Run the Docker Image:**
+   Open a terminal in the root directory of this repository and execute the following command to build the Docker image and start the Docker container with the appropriate volume mapping:
+
+   ```sh
+   docker build --rm . -t lab3-image && docker run --rm -ti -v "$(pwd)/program":/program lab3-image
+   ```
+
+   _Note: When using Windows, use ${pwd}/program:/program._
+
+### Compiling and Running the Program
+
+2. **Generate ANTLR Files:**
+   Inside the Docker container, run the following command to generate the ANTLR files:
+
+   ```sh
+   antlr -Dlanguage=Python3 ConfRoomScheduler.g4
+   ```
+
+3. **Run the Program:**
+   After generating the ANTLR files, run the program using:
+
+   ```sh
+   python3 DriverConfroom.py test/<test file>
+   ```
+
+4. **Run Automated Tests:**
+   For automated tests, run the following command:
+
+   ```sh
+   python3 automatedTests.py
+   ```
+
+## Files
+
+- [**Dockerfile**](./Dockerfile): Contains the instructions to build the Docker image.
+- [**DriverConfroom.py**](./program/DriverConfroom.py): The main driver script for running the conference room scheduler interpreter.
+- [**ConfRoomScheduler.g4**](./program/ConfRoomScheduler.g4): The ANTLR grammar definition file.
+- [**automatedTests.py**](./program/automatedTests.py): Script to run automated tests.
+- [**tests**](./program/tests/): Directory containing test files.
+
+> For any issues or further assistance, please contact us at [cha21881@uvg.edu.gt](mailto:cha21881@uvg.edu.gt) or [vil20776@uvg.edu.gt](mailto:vil20776@uvg.edu.gt)

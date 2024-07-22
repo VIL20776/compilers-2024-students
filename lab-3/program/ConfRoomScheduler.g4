@@ -20,6 +20,7 @@ DATE: DIGIT DIGIT '/' DIGIT DIGIT '/' DIGIT DIGIT DIGIT DIGIT;
 TIME: DIGIT DIGIT ':' DIGIT DIGIT;
 ID: [a-zA-Z0-9]+;
 STRING: '"' (~["\r\n])* '"';
+COMMENT: '#' ~[\r\n]* -> skip;
 NEWLINE: '\r'? '\n';
 WS: [ \t]+ -> skip;
 

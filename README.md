@@ -17,7 +17,7 @@ This repository includes:
 
 ## How to Use This Repository
 
-1. **Clone the Repository**: 
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/gbrolo/compilers-2024-students.git
-
+   ```
